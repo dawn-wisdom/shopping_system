@@ -1,0 +1,220 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+  <display-name>Archetype Created Web Application</display-name>
+  <welcome-file-list>
+    <welcome-file>ShowProductInStore</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+
+  <filter>
+    <filter-name>Set Character Encoding</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>Set Character Encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>controller.AddToCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/AddToCart</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ShowAllProductsServlet</servlet-name>
+    <servlet-class>controller.ShowAllProductsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAllProductsServlet</servlet-name>
+    <url-pattern>/ShowAllProducts</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ShowProductDetailServlet</servlet-name>
+    <servlet-class>controller.ShowProductDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowProductDetailServlet</servlet-name>
+    <url-pattern>/ShowProductDetail</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CartChangeServlet</servlet-name>
+    <servlet-class>controller.CartChangeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartChangeServlet</servlet-name>
+    <url-pattern>/CartChange</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Select2BuyServlet</servlet-name>
+    <servlet-class>controller.Select2BuyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Select2BuyServlet</servlet-name>
+    <url-pattern>/Select2Buy</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CreateOrderServlet</servlet-name>
+    <servlet-class>controller.CreateOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateOrderServlet</servlet-name>
+    <url-pattern>/CreateOrder</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddProductServlet</servlet-name>
+    <servlet-class>controller.AddProductServlet</servlet-class>
+    <multipart-config>
+      <max-file-size>52428800</max-file-size>  <!-- 50 MB -->
+      <max-request-size>52428800</max-request-size>  <!-- 50 MB -->
+      <file-size-threshold>0</file-size-threshold>  <!-- 不使用临时文件 -->
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddProductServlet</servlet-name>
+    <url-pattern>/AddProduct</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ShowProductInStoreServlet</servlet-name>
+    <servlet-class>controller.ShowProductInStoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowProductInStoreServlet</servlet-name>
+    <url-pattern>/ShowProductInStore</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetOriginProductServlet</servlet-name>
+    <servlet-class>controller.GetOriginProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetOriginProductServlet</servlet-name>
+    <url-pattern>/GetOriginProduct</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>EditProductServlet</servlet-name>
+    <servlet-class>controller.EditProductServlet</servlet-class>
+    <multipart-config>
+      <max-file-size>52428800</max-file-size>  <!-- 50 MB -->
+      <max-request-size>52428800</max-request-size>  <!-- 50 MB -->
+      <file-size-threshold>0</file-size-threshold>  <!-- 不使用临时文件 -->
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditProductServlet</servlet-name>
+    <url-pattern>/EditProduct</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>OrderManageServlet</servlet-name>
+    <servlet-class>controller.OrderManageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderManageServlet</servlet-name>
+    <url-pattern>/OrderManage</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <servlet-class>controller.DeleteOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>/DeleteOrder</url-pattern>
+    </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UpdateOrderStatusServlet</servlet-name>
+    <servlet-class>controller.UpdateOrderStatusServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateOrderStatusServlet</servlet-name>
+    <url-pattern>/UpdateOrderStatus</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ShowOrderDetailServlet</servlet-name>
+    <servlet-class>controller.ShowOrderDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowOrderDetailServlet</servlet-name>
+    <url-pattern>/ShowOrderDetail</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ProductsSaledServlet</servlet-name>
+    <servlet-class>controller.ProductsSaledServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductsSaledServlet</servlet-name>
+    <url-pattern>/ProductsSaled</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PurchaseLogServlet</servlet-name>
+    <servlet-class>controller.PurchaseLogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PurchaseLogServlet</servlet-name>
+    <url-pattern>/PurchaseLog</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ExportPurchaseLogServlet</servlet-name>
+    <servlet-class>controller.ExportPurchaseLogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportPurchaseLogServlet</servlet-name>
+    <url-pattern>/ExportPurchaseLog</url-pattern>
+  </servlet-mapping>
+</web-app>
