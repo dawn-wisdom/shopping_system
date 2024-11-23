@@ -9,10 +9,7 @@
 </head>
 <body>
 <a href="login.jsp">登录</a>
-<%
-// 获取产品列表
-List<Product> products = (List<Product>) request.getAttribute("productsInStore");
-%>
+
 <h1>本店商品</h1>
 	<table>
         <tr>

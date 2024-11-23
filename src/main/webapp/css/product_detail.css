@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* 让内容高度居中 */
+}
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1400px; /* 增大宽度 */
+    width: 90%; /* 保持页面自适应 */
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 更加柔和的阴影 */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-image-container {
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+    background-color: #f4f4f4;
+}
+
+.product-image-container img {
+    max-width: 100%;
+    max-height: 500px; /* 增大图片尺寸 */
+    object-fit: contain;
+}
+
+.product-details {
+    flex: 2;
+    padding: 40px;
+}
+
+.product-name {
+    font-size: 32px; /* 增大字体 */
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.product-description {
+    font-size: 18px; /* 增大字体 */
+    line-height: 1.8; /* 增大行距 */
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.product-category, .product-price, .product-pnum {
+    font-size: 20px; /* 增大字体 */
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.product-quantity-pnum {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 18px;
+    color: #444;
+}
+
+select.quantity {
+    padding: 8px;
+    font-size: 18px; /* 增大字体 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.product-operation-container {
+    margin-top: 40px;
+    display: flex;
+    gap: 25px;
+}
+
+.add-to-cart button, .buy-immediately button {
+    padding: 15px 25px; /* 增大按钮尺寸 */
+    font-size: 18px; /* 增大字体 */
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart button:hover, .buy-immediately button:hover {
+    background-color: #0056b3;
+}
+
+.add-to-cart a, .buy-immediately a {
+    text-decoration: none;
+}
+
+.buy-immediately button {
+    background-color: #28a745;
+}
+
+.buy-immediately button:hover {
+    background-color: #1e7e34;
+}

@@ -35,42 +35,21 @@ public class RegisterServlet extends HttpServlet {
 		String pwd2 = request.getParameter("pwdName2");
 		String email= request.getParameter("emailName");
 		String phone= request.getParameter("phoneName");
-		String role=request.getParameter("role");
 		boolean rel=false;
-		if(role.equals("customer"))
-		{
-			if(pwd1.equals(pwd2)){
-				// 判断密码输入是否相同
-				// 根据user里的内容进行注册
-				try {
-					rel=customerService.register(userName,pwd1,email,phone);
-					request.getRequestDispatcher("login.jsp").forward(request, response);
-				} catch (SQLException e) {
-					throw new RuntimeException(e);
-				}
-			}else {
-				// 两次输入密码不同
-				System.out.println("两次密码不同，注册失败");
-				request.getRequestDispatcher("register.jsp").forward(request, response);
+
+		if(pwd1.equals(pwd2)){
+			// 判断密码输入是否相同
+			// 根据user里的内容进行注册
+			try {
+				rel=customerService.register(userName,pwd1,email,phone);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
 			}
-		}
-		else if(role.equals("seller"))
-		{
-			if(pwd1.equals(pwd2)){
-				// 判断密码输入是否相同
-				// 根据user里的内容进行注册
-				try {
-					String storeName=request.getParameter("storeName");
-					rel=sellerService.register(userName,storeName,pwd1,email,phone);
-					request.getRequestDispatcher("login.jsp").forward(request, response);
-				} catch (SQLException e) {
-					throw new RuntimeException(e);
-				}
-			}else {
-				// 两次输入密码不同
-				System.out.println("两次密码不同，注册失败");
-				request.getRequestDispatcher("register.jsp").forward(request, response);
-			}
+		}else {
+			// 两次输入密码不同
+			System.out.println("两次密码不同，注册失败");
+			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
 
 	}

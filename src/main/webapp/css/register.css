@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 450px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slogan {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.slogan h1 {
+    font-size: 20px;
+    color:  #0056b3;
+    font-weight: bold;
+}
+
+.form-section {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form input {
+    padding: 10px 15px; /* 上下内边距10px，左右内边距15px */
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input::placeholder {
+    color: #aaa;
+}
+
+form button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom:30px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s ease;
+}
+
+form a button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form a button:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
