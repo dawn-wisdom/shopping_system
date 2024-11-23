@@ -57,7 +57,6 @@ public class Select2BuyServlet extends HttpServlet {
                 }
             }
 
-            // 示例：打印 buy 中的选中商品和数量
             /*
             for (Map.Entry<Product, Integer> entry : product2Buy.entrySet()) {
                 System.out.println("Selected Product: " + entry.getKey().getProductName() + ", Quantity: " + entry.getValue());
