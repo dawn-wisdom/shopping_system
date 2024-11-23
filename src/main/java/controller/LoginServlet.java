@@ -66,17 +66,14 @@ public class LoginServlet extends HttpServlet {
 			if (seller !=null) {
 				// 用户不为空，代表用户存在，成功登录
 				System.out.println("登录成功");
-
-				/*
-				 * 创建一个session用来存储user
-				 * session是javaweb中一个负责存储数据的，相当于你的钥匙包，此时的user便是其中的一个钥匙，
-				 * 将user存入包内，需要的时候在取出来，在前端jsp页面非常好用，不明白的同学可以去学一下这里就不赘述了
-				 * */
 				HttpSession session = request.getSession();
 				session.setAttribute("seller", seller);
 
 				// 登录成功后，通过转发跳转到新的界面，当然也可以使用重定向，我们这里为了简单采用转发,若是想转发其他界面只要修改loginSuccess.jsp即可
-				request.getRequestDispatcher("productsInStore.jsp").forward(request, response);// 转发
+
+				String url="ShowProductInStore";
+				response.sendRedirect(url);
+
 			} else {
 				// user为空，代表用户不存在
 				System.out.println("登陆失败");

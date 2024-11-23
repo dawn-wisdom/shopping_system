@@ -1,0 +1,158 @@
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    min-height: 100vh; /* 页面高度全屏 */
+}
+
+/* 表单容器 */
+form {
+    max-width: 800px; /* 调整宽度以适应居中效果 */
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 购物车条目容器 */
+.cart-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 10px;
+    gap: 20px;
+}
+
+.container1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.selectedBox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.rank {
+    font-size: 18px;
+    color: #666;
+}
+
+.product-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.container2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #777;
+}
+
+.product-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-quantity input[type="button"] {
+    width: 30px;
+    height: 30px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-quantity input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.product-quantity input[type="text"] {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.container3 a {
+    color: gray; /* 设置文字颜色为灰色 */
+    font-size: 0.8rem;  /* 设置较小的字体 */
+    text-decoration: none; /* 去除链接的下划线 */
+}
+
+.container3 a:hover {
+    color: #888; /* 鼠标悬停时的颜色，稍微加深一点 */
+}
+
+/* 账单容器 */
+.bill {
+    margin-top: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd;
+}
+
+.products-kind, .total_cost {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 提交按钮 */
+.submit-button input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* 空购物车提示 */
+.empty-notice {
+    text-align: center;
+    font-size: 20px;
+    color: #777;
+    margin: 50px 0;
+}

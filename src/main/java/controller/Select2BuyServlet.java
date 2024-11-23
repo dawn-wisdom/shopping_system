@@ -57,7 +57,6 @@ public class Select2BuyServlet extends HttpServlet {
                 }
             }
 
-            // 示例：打印 buy 中的选中商品和数量
             /*
             for (Map.Entry<Product, Integer> entry : product2Buy.entrySet()) {
                 System.out.println("Selected Product: " + entry.getKey().getProductName() + ", Quantity: " + entry.getValue());
@@ -66,6 +65,7 @@ public class Select2BuyServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/submitOrder.jsp");
         }
 
+        //直接点立即购买的话
         String productByDirectClick=request.getParameter("productId");
         String quantityByDirectClick=request.getParameter("quantity");
         if(productByDirectClick!=null)

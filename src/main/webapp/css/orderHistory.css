@@ -1,0 +1,129 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.main {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.total-orders {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Order grid styles */
+.orders-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between; /* 让各个order-item均匀分布在一行 */
+    align-items: flex-start; /* 项目垂直对齐到顶部 */
+    gap: 20px; /* 每个order-item之间的间距 */
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.order-header-item {
+    display: flex;
+    flex-direction: column; /* 标签和值按列排列 */
+    align-items: center; /* 标签和值在纵向上居中 */
+    gap: 5px; /* 标签和值之间的间距 */
+    flex: 1; /* 每个order-item均匀占据空间 */
+}
+
+.order-header-label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.order-header-status {
+    font-size: 14px;
+    color: #555;
+}
+
+.operations a button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.operations a button:hover {
+    background-color: #0056b3;
+}
+
+.updateStatusButton {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.updateStatusButton:hover {
+    background-color: #e85050;
+}
+/* Order details */
+.order-details-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 15px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-quantity,
+.product-cost {
+    color: #555;
+}
