@@ -66,6 +66,11 @@ public class OrderService {
         List<Order> orders=null;
         try{
             orders=orderDao.findOrderByUser(customer);
+            for(Order order:orders)
+            {
+                List<OrderItem> ois=orderItemDao.findOrderItemsById(order.getOrderId());
+                order.setOrderItems(ois);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

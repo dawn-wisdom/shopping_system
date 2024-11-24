@@ -57,7 +57,7 @@
                 <label for="receivePhone">收件人号码</label>
                 <input type="tel" id="receivePhone" name="receive_phone" required pattern="^\d{11}$" placeholder="请输入11位手机号"><br>
             </div>
-
+            <input type="hidden" name="money" value="${totalPrice}">
             <div class="submit-option">
                 <input type="submit" value="提交订单">
             </div>

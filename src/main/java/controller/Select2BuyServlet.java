@@ -65,6 +65,7 @@ public class Select2BuyServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/submitOrder.jsp");
         }
 
+        //直接点立即购买的话
         String productByDirectClick=request.getParameter("productId");
         String quantityByDirectClick=request.getParameter("quantity");
         if(productByDirectClick!=null)
