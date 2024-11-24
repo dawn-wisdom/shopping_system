@@ -28,7 +28,7 @@ public class ProductDao {
     }
     // 查找所有商品
     public List<Product> listAll() throws SQLException {
-        String sql = "select * from products";
+        String sql = "select * from products order by category";
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         return runner.query(sql, new BeanListHandler<Product>(Product.class));
     }
