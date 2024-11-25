@@ -1,0 +1,109 @@
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex; /* 使用 flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    min-height: 100vh; /* 占满整个视口高度 */
+}
+
+.container {
+    width: 60%;
+    max-width: 600px; /* 限制宽度 */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* 内容居中对齐 */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* 表单样式 */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-item label {
+    font-weight: bold;
+    width: 30%; /* 调整标签宽度 */
+    text-align: right;
+    margin-right: 10px;
+}
+
+.input-text,
+.select,
+.textarea,
+.input-file {
+    width: 65%; /* 调整输入框宽度 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.textarea {
+    height: 80px;
+}
+
+.input-file {
+    border: none;
+}
+
+/* 按钮样式 */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button-ok, .button-cancel, .button-back {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-ok {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button-ok:hover {
+    background-color: #45a049;
+}
+
+.button-cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+.button-cancel:hover {
+    background-color: #e53935;
+}
+
+.button-back {
+    background-color: #2196F3;
+    color: white;
+}
+
+.button-back:hover {
+    background-color: #1e88e5;
+}

@@ -1,0 +1,94 @@
+/* 基本样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* 产品容器 */
+.products-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 每个商品项之间的间距 */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 每个商品项 */
+.product-item {
+    display: flex;
+    justify-content: space-between; /* 水平均匀分布 */
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0;
+    width: 100%; /* 确保商品项占满父容器 */
+}
+
+/* 商品编号 */
+.product-id {
+    font-size: 14px;
+    color: #333;
+    flex-basis: 10%; /* 占据10%的宽度 */
+    text-align: left;
+}
+
+/* 商品名称、价格、库存容器 */
+.container1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  /* 商品名称、价格、库存之间的间距 */
+    flex-basis: 35%; /* 占据35%的宽度 */
+}
+
+/* 商品名称、价格、库存水平排列 */
+.product-name, .product-price, .product-stock {
+    display: flex;
+    justify-content: space-between;  /* 水平分布 */
+    font-size: 16px;
+    color: #555;
+}
+
+/* 商品图片 */
+.product-image img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+    flex-basis: 20%; /* 占据20%的宽度 */
+}
+
+/* 操作按钮区域 */
+.product-actions {
+    display: flex;
+    flex-direction:column;
+    gap: 10px; /* 按钮之间的间距 */
+    flex-basis: 25%; /* 占据25%的宽度 */
+}
+
+/* 按钮样式 */
+.delete-btn, .edit-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover, .edit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* 下架商品按钮 */
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}

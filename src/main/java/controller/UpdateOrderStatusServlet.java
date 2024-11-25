@@ -40,7 +40,7 @@ public class UpdateOrderStatusServlet extends HttpServlet {
             }
             else if(newStatus==2)//确认发货
             {
-                String url="ShowProductInStore";
+                String url="OrderManage?request_type=1";
                 response.sendRedirect(url);
             }
             else if(newStatus==3)//确认收货

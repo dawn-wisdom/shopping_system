@@ -1,0 +1,76 @@
+/* 全局容器 */
+.container {
+    padding: 20px;
+}
+
+/* 排行榜样式 */
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* 排行榜头部 */
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.header-item {
+    width: 24%;
+    text-align: center;
+}
+
+/* 排行榜条目 */
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.leaderboard-item-content {
+    width: 24%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 图片样式 */
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* 分页控件样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.page-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+.page-link:hover {
+    background-color: #f1f1f1;
+}
+
+/* 当前页数 */
+.current-page {
+    font-weight: bold;
+    font-size: 16px;
+}

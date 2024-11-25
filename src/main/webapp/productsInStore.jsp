@@ -2,41 +2,38 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
 <%@ page import= "entity.Product" %>
-<html>
-<head>
-    <title>产品列表</title>
 
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>产品列表</title>
+    <link rel="stylesheet" type="text/css" href="css/productsInStore.css">
 </head>
 <body>
-<a href="login.jsp">登录</a>
-
-<h1>本店商品</h1>
-	<table>
-        <tr>
-            <th>商品编号</th>
-            <th>商品名称</th>
-            <th>图片</th>
-            <th>价格</th>
-            <th>库存</th>
-            <th>修改信息</th>
-            <th>删除商品</th>
-        </tr>
-        <c:forEach var="product" items="${productsInStore}">
-            <tr>
-                <td>${product.productId}</td>
-                <td>${product.productName}</td>
-                <td><img src="${product.productImage}" alt="Product Image" height=300px width=300px /></td>
-                <td>${product.productPrice}</td>
-                <td>${product.pnum}</td>
-                <td><a href="${pageContext.request.contextPath}/DeleteProductServlet?productId=${product.productId}">下架商品</a></td>
-                <td><a href="${pageContext.request.contextPath}/GetOriginProduct?productId=${product.productId}">点击编辑</td>
-            </tr>
-        </c:forEach>
-    </table>
-
     <a href="${pageContext.request.contextPath}/addProduct.jsp">添加商品</a>
     <a href="${pageContext.request.contextPath}/OrderManage?request_type=1">订单管理</a>
     <a href="${pageContext.request.contextPath}/ProductsSaled">销售统计</a>
     <a href="${pageContext.request.contextPath}/PurchaseLog">客户管理</a>
+    <div class="products-container">
+        <c:forEach var="product" items="${productsInStore}">
+            <div class="product-item">
+                <div class="product-id">商品编号：${product.productId}</div>
+                <div class="product-image">
+                    <img src="${product.productImage}" alt="Product Image">
+                </div>
+                <div class="container1">
+
+                    <div class="product-name">商品名称：${product.productName}</div>
+                    <div class="product-price">价格：${product.productPrice}</div>
+                    <div class="product-stock">库存：${product.pnum}</div>
+                </div>
+
+                <div class="product-actions">
+                    <a href="${pageContext.request.contextPath}/DeleteProductServlet?productId=${product.productId}" class="delete-btn">下架商品</a>
+                    <a href="${pageContext.request.contextPath}/GetOriginProduct?productId=${product.productId}" class="edit-btn">点击编辑</a>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 </body>
 </html>
