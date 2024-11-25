@@ -73,6 +73,20 @@ public class ProductService {
         }
         return products;
     }
+    //通过商品名查找商品
+    public List<Product>findProductByName(String productName)
+    {
+        List<Product> products=null;
+        try{
+            products=dao.findProductByName(productName);
+            System.out.println("按商品名字查询成功");
+        }catch (SQLException e)
+        {
+            e.printStackTrace();
+            System.out.println("按商品名字查询失败");
+        }
+        return products;
+    }
     public List<Product>findProductByStore(String store)
     {
         List<Product> products=null;

@@ -44,6 +44,12 @@ public class ProductDao {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         return runner.query(sql, new BeanListHandler<Product>(Product.class), category);
     }
+    //通过商品名模糊搜索找到商品
+    public List<Product>findProductByName(String productName) throws SQLException{
+        String sql = "select * from products where productName LIKE ?";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        return runner.query(sql, new BeanListHandler<Product>(Product.class), "%" + productName + "%");
+    }
     //通过店家找到产品
     public List<Product>findProductByStore(String store) throws SQLException {
         String sql = "select * from products where store=?";

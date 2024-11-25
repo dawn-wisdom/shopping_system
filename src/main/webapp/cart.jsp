@@ -84,6 +84,7 @@
 </head>
 <body>
     <form action="Select2BuyServlet" method="post" id="orderForm">
+
         <c:if test="${not empty cart}">
             <div class="cart-container">
                 <c:forEach items="${cart}" var="entry" varStatus="vs">
@@ -160,7 +161,6 @@
     </form>
     <c:if test="${empty cart}">
         <div class="empty-notice">购物车为空</class>
-
     </c:if>
 
 </body>
