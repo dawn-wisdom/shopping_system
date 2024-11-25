@@ -53,9 +53,21 @@
                         <div class="order-header-item">
                             <div class="order-header-label">操作:</div>
                             <div class="operations">
-                                <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">
-                                    <button type="button">删除</button>
-                                </a>
+                                <c:choose>
+                                    <c:when test="${order.status==2}">
+                                        <a href="${pageContext.request.contextPath}/UpdateOrderStatus?orderId=${order.orderId}&newStatus=3">
+                                            <button type="button">确认收货</button>
+                                        </a>
+                                    </c:when>
+                                    <c:when test="${order.status==3}">
+                                        <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">
+                                            <button type="button">删除</button>
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                     </div>

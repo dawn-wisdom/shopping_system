@@ -23,6 +23,12 @@
                     邮箱  <input type="text" id="email" name="emailName" placeholder="填写邮箱"><br>
                     联系电话 <input type="text" id="phone" name="phoneName" placeholder="填写号码"><br>
                     <button type="submit">注册</button>
+                    <!-- 显示错误提示 -->
+                    <c:if test="${not empty errorMessage}">
+                        <div class="error-message">
+                            ${errorMessage}
+                        </div>
+                    </c:if>
                 </form>
     </div>
 </body>
