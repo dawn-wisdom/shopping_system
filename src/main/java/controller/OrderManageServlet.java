@@ -32,6 +32,14 @@ public class OrderManageServlet extends HttpServlet {
         {
             HttpSession session=request.getSession();
             Customer customer=(Customer) session.getAttribute("customer");
+            if (customer == null) {
+                // 未登录的处理
+                request.setAttribute("errorMessage", "您还没有登录");
+                // 如果 referer 存在，则重定向回来源页面
+                request.getRequestDispatcher("ShowAllProducts").forward(request,response);
+                return;
+            }
+
             List<Order> orders=service.findOrderByUser(customer);
             request.setAttribute("orders",orders);
             request.getRequestDispatcher("orderHistory.jsp").forward(request,response);

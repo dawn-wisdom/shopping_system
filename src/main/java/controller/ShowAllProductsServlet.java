@@ -18,16 +18,34 @@ public class ShowAllProductsServlet extends HttpServlet {
     ProductService productService=new ProductService();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: 处理 GET 请求
+        String searchKey="";
+        searchKey=request.getParameter("keyword");
         List<Product> productList=null;
-        productList=productService.listAll();
-        if(productList!=null)
+        if(searchKey==null)
         {
-            request.setAttribute("products", productList);
-            request.getRequestDispatcher("products.jsp").forward(request, response);
+            productList=productService.listAll();
+            if(productList!=null)
+            {
+                request.setAttribute("products", productList);
+                request.getRequestDispatcher("products.jsp").forward(request, response);
+            }
+            else
+            {
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         }
         else
         {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            productList=productService.findProductByName(searchKey);
+            if(productList!=null)
+            {
+                request.setAttribute("products", productList);
+                request.getRequestDispatcher("products.jsp").forward(request, response);
+            }
+            else
+            {
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         }
     }
 
