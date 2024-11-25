@@ -33,7 +33,7 @@ public class OrderDao {
 
     //按用户显示信息
     public List<Order> findOrderByUser(final Customer customer) throws SQLException {
-        String sql = "select * from orders where customerId=?";
+        String sql = "select * from orders where customerId=? order by order_time desc";
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         return runner.query(sql, new ResultSetHandler<List<Order>>() {
             public List<Order> handle(ResultSet rs) throws SQLException {
@@ -58,7 +58,7 @@ public class OrderDao {
 
     //查询所有的订单
     public List<Order> findAllOrder() throws  SQLException{
-        String sql = "select orders.*,customers.* from orders,customers where customers.customerId=orders.customerId order by orders.orderId";
+        String sql = "select orders.*,customers.* from orders,customers where customers.customerId=orders.customerId order by orders.order_time desc";
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         return runner.query(sql, new ResultSetHandler<List<Order>>() {
             public List<Order> handle(ResultSet rs) throws SQLException {
@@ -83,7 +83,7 @@ public class OrderDao {
 
     //根据id查询订单
     public Order findOrderById(int orderId) throws SQLException {
-        String sql = "select * from orders,customers where orders.customerId=customers.customerId and orders.orderId=?";
+        String sql = "select * from orders,customers where orders.customerId=customers.customerId and orders.orderId=? ";
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         return runner.query(sql, new ResultSetHandler<Order>() {
             public Order handle(ResultSet rs) throws SQLException {

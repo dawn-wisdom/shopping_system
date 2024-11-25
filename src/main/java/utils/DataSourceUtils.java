@@ -27,7 +27,6 @@ public class DataSourceUtils {
         }
     }
     public static DataSource getDataSource() {
-        System.out.println("获取数据源");
         return dataSource;
     }
     /**

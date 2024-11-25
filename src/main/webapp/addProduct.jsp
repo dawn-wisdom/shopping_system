@@ -1,10 +1,11 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="head_seller.jsp" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Language" content="zh-cn">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/add_product.css">
+    <link rel="stylesheet" type="text/css" href="css/add_product.css">
     <title>添加商品</title>
 </head>
 <body>
@@ -13,15 +14,15 @@
         <form action="AddProductServlet" method="post" enctype="multipart/form-data" class="form-container">
             <div class="form-item">
                 <label for="productName">商品名称：</label>
-                <input type="text" id="productName" name="productName" class="input-text" />
+                <input type="text" id="productName" name="productName" class="input-text" required/>
             </div>
             <div class="form-item">
                 <label for="productPrice">商品价格：</label>
-                <input type="text" id="productPrice" name="productPrice" class="input-text" />
+                <input type="text" id="productPrice" name="productPrice" class="input-text" required/>
             </div>
             <div class="form-item">
                 <label for="pnum">商品数量：</label>
-                <input type="text" id="pnum" name="pnum" class="input-text" />
+                <input type="text" id="pnum" name="pnum" class="input-text" required/>
             </div>
             <div class="form-item">
                 <label for="category">商品类别：</label>
@@ -35,7 +36,7 @@
             </div>
             <div class="form-item">
                 <label for="image">商品图片：</label>
-                <input type="file" id="image" name="image" class="input-file" />
+                <input type="file" id="image" name="image" class="input-file" required/>
             </div>
             <div class="form-item">
                 <label for="description">商品描述：</label>
