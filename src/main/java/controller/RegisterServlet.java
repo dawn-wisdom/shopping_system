@@ -49,7 +49,9 @@ public class RegisterServlet extends HttpServlet {
 		}else {
 			// 两次输入密码不同
 			System.out.println("两次密码不同，注册失败");
-			request.getRequestDispatcher("register.jsp").forward(request, response);
+			request.setAttribute("errorMessage", "两次密码不同，请重试");
+			// 登录失败通过转发，在回到登录界面继续进行登录
+			request.getRequestDispatcher("register.jsp").forward(request, response);// 转发
 		}
 
 	}

@@ -39,9 +39,11 @@ public class SellerDao {
                     System.out.println("登录成功！");
                 } else {
                     System.out.println("密码错误！");
+                    return null;
                 }
             } else {
                 System.out.println("用户不存在！");
+                return null;
             }
         } catch (SQLException e) {
             e.printStackTrace();

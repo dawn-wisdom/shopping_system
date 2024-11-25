@@ -85,81 +85,82 @@
 <body>
     <form action="Select2BuyServlet" method="post" id="orderForm">
         <c:if test="${not empty cart}">
-        <div class="cart-container">
-            <c:forEach items="${cart}" var="entry" varStatus="vs">
-                <div class="product-container">
-                   <div class="container1">
-                        <div class="selectedBox">
-                            <input type="checkbox" name="selectedItems" value="${entry.key.productId}"
-                             data-price="${entry.key.productPrice}" data-quantity="${entry.value}"  class="item-checkbox">
+            <div class="cart-container">
+                <c:forEach items="${cart}" var="entry" varStatus="vs">
+                    <div class="product-container">
+                       <div class="container1">
+                            <div class="selectedBox">
+                                <input type="checkbox" name="selectedItems" value="${entry.key.productId}"
+                                 data-price="${entry.key.productPrice}" data-quantity="${entry.value}"  class="item-checkbox">
+                            </div>
+                            <div class="rank">
+                                    ${vs.count}
+                            </div>
                         </div>
-                        <div class="rank">
-                                ${vs.count}
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <img src="${entry.key.productImage}" alt="${entry.key.productName}">
-                    </div>
-
-                    <div class="container2">
-                        <div class="product-name">
-                            ${entry.key.productName}
+                        <div class="product-image">
+                            <img src="${entry.key.productImage}" alt="${entry.key.productName}">
                         </div>
 
-                        <div class="product-price">
-                            $${entry.key.productPrice}
+                        <div class="container2">
+                            <div class="product-name">
+                                ${entry.key.productName}
+                            </div>
+
+                            <div class="product-price">
+                                $${entry.key.productPrice}
+                            </div>
+                            <div class="product-quantity">
+                                <!-- 商品减少按钮 -->
+                                <input type="button" value="-"
+                                       id="decrease-btn-${entry.key.productId}"
+                                       class="decrease-btn"
+                                       data-product-id="${entry.key.productId}"
+                                       data-quantity="${entry.value}"
+                                       onclick="changeProductNum(${entry.value - 1}, '${entry.key.pnum}', '${entry.key.productId}')">
+
+                                <!-- 显示商品数量 -->
+                                <input name="quantity" type="text"
+                                       id="quantity-${entry.key.productId}"
+                                       value="${entry.value}"
+                                       style="width:40px;text-align:center">
+
+                                <!-- 增加按钮 -->
+                                <input type="button" value="+"
+                                       id="increase-btn-${entry.key.productId}"
+                                       class="increase-btn"
+                                       onclick="changeProductNum(${entry.value + 1}, '${entry.key.pnum}', '${entry.key.productId}')">
+                            </div>
                         </div>
-                        <div class="product-quantity">
-                            <!-- 商品减少按钮 -->
-                            <input type="button" value="-"
-                                   id="decrease-btn-${entry.key.productId}"
-                                   class="decrease-btn"
-                                   data-product-id="${entry.key.productId}"
-                                   data-quantity="${entry.value}"
-                                   onclick="changeProductNum(${entry.value - 1}, '${entry.key.pnum}', '${entry.key.productId}')">
 
-                            <!-- 显示商品数量 -->
-                            <input name="quantity" type="text"
-                                   id="quantity-${entry.key.productId}"
-                                   value="${entry.value}"
-                                   style="width:40px;text-align:center">
-
-                            <!-- 增加按钮 -->
-                            <input type="button" value="+"
-                                   id="increase-btn-${entry.key.productId}"
-                                   class="increase-btn"
-                                   onclick="changeProductNum(${entry.value + 1}, '${entry.key.pnum}', '${entry.key.productId}')">
+                        <div class="container3">
+                            <a href="${pageContext.request.contextPath}/CartChange?productId=${entry.key.productId}&quantity=0">移除</button></a>
                         </div>
                     </div>
 
-                    <div class="container3">
-                        <a href="${pageContext.request.contextPath}/CartChange?productId=${entry.key.productId}&quantity=0">移除</button></a>
-                    </div>
-                </div>
-
-            </c:forEach>
-        </div>
-            <div class="bill">
-                <!-- 账单部分 -->
-                <div class="bill">
-                    <div class="products-kind">
-                        总计: <span id="totalItems">0</span> 件
-                    </div>
-                    <div class="total_cost">
-                        合计: <span id="totalPrice">0.00</span> 元
-                    </div>
-                </div>
-               <!-- 隐藏的输入字段，用于存储选中商品的 ID 列表 -->
-                <input type="hidden" id="selectedItemIds" name="selectedItemIds" value="">
-                 <!--结账 -->
-                 <div class="submit-button">
-                    <input type="submit" value="提交订单" onclick="collectSelectedItems()" />
-                </div>
+                </c:forEach>
             </div>
+                <div class="bill">
+                    <!-- 账单部分 -->
+                    <div class="bill">
+                        <div class="products-kind">
+                            总计: <span id="totalItems">0</span> 件
+                        </div>
+                        <div class="total_cost">
+                            合计: <span id="totalPrice">0.00</span> 元
+                        </div>
+                    </div>
+                   <!-- 隐藏的输入字段，用于存储选中商品的 ID 列表 -->
+                    <input type="hidden" id="selectedItemIds" name="selectedItemIds" value="">
+                     <!--结账 -->
+                     <div class="submit-button">
+                        <input type="submit" value="提交订单" onclick="collectSelectedItems()" />
+                    </div>
+                </div>
         </c:if>
     </form>
     <c:if test="${empty cart}">
         <div class="empty-notice">购物车为空</class>
+
     </c:if>
 
 </body>

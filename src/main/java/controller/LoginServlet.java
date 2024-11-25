@@ -55,8 +55,9 @@ public class LoginServlet extends HttpServlet {
 			} else {
 				// user为空，代表用户不存在
 				System.out.println("登陆失败");
+				request.setAttribute("errorMessage", "账号或密码错误，请重试！");
 				// 登录失败通过转发，在回到登录界面继续进行登录
-				request.getRequestDispatcher("wrong_pwd.jsp").forward(request, response);// 转发
+				request.getRequestDispatcher("login.jsp").forward(request, response);// 转发
 			}
 		}
 		else if(role.equals("seller"))
@@ -69,16 +70,14 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("seller", seller);
 
-				// 登录成功后，通过转发跳转到新的界面，当然也可以使用重定向，我们这里为了简单采用转发,若是想转发其他界面只要修改loginSuccess.jsp即可
-
 				String url="ShowProductInStore";
 				response.sendRedirect(url);
 
 			} else {
-				// user为空，代表用户不存在
 				System.out.println("登陆失败");
+				request.setAttribute("errorMessage", "账号或密码错误，请重试！");
 				// 登录失败通过转发，在回到登录界面继续进行登录
-				request.getRequestDispatcher("index.jsp").forward(request, response);// 转发
+				request.getRequestDispatcher("login.jsp").forward(request, response);// 转发
 			}
 		}
 		

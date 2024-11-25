@@ -59,9 +59,11 @@
                         <div class="order-header-item">
                             <div class="order-header-label">操作:</div>
                             <div class="operations">
-                                <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">
-                                    <button type="button">删除</button>
-                                </a>
+                                <c:if test="${order.status==3}">
+                                    <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">
+                                        <button type="button">删除</button>
+                                    </a>
+                                </c:if>
                             </div>
                         </div>
                     </div>

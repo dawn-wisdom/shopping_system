@@ -13,6 +13,7 @@
         <div class="slogan">
             <h1>欢迎来到乐购网,购你所想</h1>
         </div>
+
         <div class="container2">
             <!-- 左侧图片 -->
             <div class="image-section">
@@ -34,6 +35,12 @@
                     <label for="pwdId">密码：</label>
                     <input type="password" id="pwdId" name="pwdName" placeholder="输入密码">
                     <button type="submit">登录</button>
+                    <!-- 显示错误提示 -->
+                    <c:if test="${not empty errorMessage}">
+                        <div class="error-message">
+                            ${errorMessage}
+                        </div>
+                    </c:if>
                 </form>
             </div>
         </div>
