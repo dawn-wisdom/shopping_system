@@ -42,8 +42,17 @@ public class AddToCartServlet extends HttpServlet {
         session.setAttribute("cart",cart);
         Cookie cookie=new Cookie("JSESSIONID",session.getId());
         cookie.setMaxAge(30*24*60);//购物车的信息存储一个月
-        String url="ShowAllProducts";
-        response.sendRedirect(url);
+        // 获取来源页面的地址
+        String referer = request.getHeader("Referer");
+
+        // 如果 referer 存在，则重定向回来源页面
+        if (referer != null) {
+            response.sendRedirect(referer);
+        } else {
+            // 如果没有 referer，则跳转到默认页面
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+        }
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

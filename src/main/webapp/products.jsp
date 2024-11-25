@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
 <%@ page import= "entity.Product" %>
+<%@ include file="head.jsp"%>
 <html>
 <head>
     <title>产品列表</title>
@@ -9,7 +10,6 @@
 </head>
 <body>
 
-<jsp:include page="head.jsp"/>
 <div class="main">
     <div class="products-grid">
         <c:if test="${not empty products}">

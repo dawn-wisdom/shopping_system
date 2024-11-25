@@ -1,13 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ include file="head.jsp"%>
 <html>
 <head>
 	<title>订单管理</title>
 	<link rel="stylesheet" type="text/css" href="css/orderHistory.css">
 </head>
 <body>
-    <jsp:include page="head.jsp"/>
     <div class="main">
         <div class="page-title">
             我的订单
