@@ -1,23 +1,22 @@
 /* 基本布局设置 */
-body {
+.payment-page{
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+        margin-top: 80px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
 }
-
 /* 容器样式 */
 .container {
-    background-color: #fff;
     padding: 20px;
+    margin-top:60px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
     text-align: center;
+
 }
 
 /* 提示信息样式 */

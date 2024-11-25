@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="head.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
     <title>支付页面</title>
     <link rel="stylesheet" type="text/css" href="css/payment.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <script>
         // 显示模态框
         function showModal() {
@@ -33,9 +36,9 @@
         };
     </script>
 </head>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <body>
+
     <!-- 获取订单号和总价 -->
     <c:set var="orderId" value="${param.orderId}" />
     <c:set var="totalCost" value="${param.total_cost}" />
@@ -48,20 +51,24 @@
         const price = ${totalCost};
         const contextPath = "${contextPath}";
     </script>
+    <jsp:include page="head.jsp"/>
+    <div class="payment-page">
+        <div class="container">
+            <div class="notice">请于15分钟内完成支付</div>
+            <div class="orderId">订单号：${orderId}</div>
+            <div class="total-cost">价格：<b>${totalCost}</div>
+            <button id="payButton" onclick="pay4order(orderId, price)">支付</button>
+        </div>
+        <!-- 模态框和遮罩层 -->
+        <div class="modal-overlay" id="overlay"></div>
+        <div id="payModal">
+            <h3>请扫码支付</h3>
+            <div id="qrcode"></div>
+            <button onclick="closeModal(orderId)">我已支付</button>
+        </div>
+    </div>
+</body>
 
-    <div class="container">
-        <div class="notice">请于15分钟内完成支付</div>
-        <div class="orderId">订单号：${orderId}</div>
-        <div class="total-cost">价格：<b>${totalCost}</div>
-        <button id="payButton" onclick="pay4order(orderId, price)">支付</button>
-    </div>
-    <!-- 模态框和遮罩层 -->
-    <div class="modal-overlay" id="overlay"></div>
-    <div id="payModal">
-        <h3>请扫码支付</h3>
-        <div id="qrcode"></div>
-        <button onclick="closeModal(orderId)">我已支付</button>
-    </div>
 </body>
 
 </html>

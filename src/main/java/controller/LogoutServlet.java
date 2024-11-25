@@ -20,6 +20,6 @@ public class LogoutServlet extends HttpServlet {
         }
 
         // 重定向到登录页面
-        response.sendRedirect("ShowAllProducts");
+        response.sendRedirect("login.jsp");
     }
 }

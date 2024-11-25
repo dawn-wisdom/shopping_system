@@ -1,158 +1,213 @@
-/* 全局样式 */
+/* 页面基本样式 */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    display: flex;
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
-    min-height: 100vh; /* 页面高度全屏 */
+    background-color: #f4f4f4;
 }
 
-/* 表单容器 */
-form {
-    max-width: 800px; /* 调整宽度以适应居中效果 */
-    width: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* 购物车条目容器 */
+/* 购物车容器样式 */
 .cart-container {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 15px 10px;
-    gap: 20px;
+    padding: 20px;
+    margin-top: 60px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
 }
 
-.container1 {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+/* 每个商品容器 */
+.product-container {
+    display: flex; /* 水平排列每个商品内部的元素 */
+    align-items: center; /* 垂直居中商品内容 */
+    justify-content: space-between; /* 水平空间均匀分配 */
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    margin-bottom: 15px;
 }
 
-.selectedBox input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-}
-
-.rank {
-    font-size: 18px;
-    color: #666;
+/* 图片部分 */
+.product-image {
+    flex: 0 0 150px; /* 限定图片的宽度 */
+    text-align: center;
 }
 
 .product-image img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 100%; /* 图片宽度自动调整 */
+    height: auto;
+    border-radius: 8px;
 }
 
+/* 商品信息部分 */
 .container2 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex: 1; /* 让商品名称、价格、数量区域占据剩余空间 */
+    padding-left: 15px; /* 在名称和价格之间增加间距 */
 }
 
+/* 商品名称 */
 .product-name {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    color: #444;
+    color: #333;
+    line-height: 1.4;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* 商品价格 */
 .product-price {
     font-size: 16px;
-    color: #777;
+    color: #e74c3c;
+    margin-top: 5px;
 }
 
+/* 商品数量部分 */
 .product-quantity {
     display: flex;
     align-items: center;
-    gap: 10px;
+    margin-top: 10px;
 }
 
 .product-quantity input[type="button"] {
-    width: 30px;
-    height: 30px;
-    background-color: #007bff;
+    background-color: #3498db;
+    color: white;
     border: none;
-    color: #fff;
+    padding: 5px 10px;
     font-size: 16px;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .product-quantity input[type="button"]:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
 }
 
 .product-quantity input[type="text"] {
-    width: 50px;
+    width: 40px;
     height: 30px;
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    margin: 5px 10px;
     font-size: 16px;
 }
 
+/* 商品操作部分 */
+.container3 {
+    flex: 0 0 150px; /* 固定操作区域宽度 */
+    text-align: center;
+}
+
 .container3 a {
-    color: gray; /* 设置文字颜色为灰色 */
-    font-size: 0.8rem;  /* 设置较小的字体 */
-    text-decoration: none; /* 去除链接的下划线 */
+    text-decoration: none;
+    margin-bottom: 10px;
 }
 
-.container3 a:hover {
-    color: #888; /* 鼠标悬停时的颜色，稍微加深一点 */
+.container3 a button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-/* 账单容器 */
+.container3 a button:hover {
+    background-color: #c0392b;
+}
+
+/* 账单部分 */
 .bill {
+    background-color: white;
     margin-top: 20px;
     padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.products-kind, .total_cost {
+.bill .products-kind,
+.bill .total_cost {
     font-size: 18px;
-    font-weight: bold;
+    margin-bottom: 10px;
     color: #333;
 }
 
-/* 提交按钮 */
+.bill .total_cost {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.submit-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .submit-button input[type="submit"] {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #28a745;
-    color: #fff;
+    background-color: #2ecc71;
+    color: white;
     border: none;
-    border-radius: 4px;
+    padding: 12px 25px;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 .submit-button input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #27ae60;
 }
 
-/* 空购物车提示 */
+/* 购物车为空时的提示 */
 .empty-notice {
+    font-size: 18px;
+    color: #e74c3c;
     text-align: center;
-    font-size: 20px;
-    color: #777;
-    margin: 50px 0;
+    margin-top: 30px;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column; /* 在移动设备上让商品内容垂直排列 */
+        align-items: flex-start;
+    }
+
+    .product-image {
+        flex: none;
+    }
+
+    .container2 {
+        padding-left: 0;
+    }
+
+    .product-name {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+
+    .product-quantity {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-quantity input[type="button"] {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .product-quantity input[type="text"] {
+        width: 60px;
+        margin: 0 0 10px 0;
+    }
+
+    .submit-button input[type="submit"] {
+        width: 100%;
+    }
 }
