@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import= "entity.Product" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
+<%@ include file="head.jsp"%>
 <html>
 <head>
     <title>购物车</title>
@@ -82,7 +83,6 @@
 
 </head>
 <body>
-    <jsp:include page="head.jsp"/>
     <form action="Select2BuyServlet" method="post" id="orderForm">
         <c:if test="${not empty cart}">
         <div class="cart-container">
