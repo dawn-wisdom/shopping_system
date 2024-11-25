@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="head_seller.jsp" %>
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
@@ -9,22 +10,23 @@
     <div class="container">
         <h1>编辑商品信息</h1>
         <form action="EditProductServlet" method="post" enctype="multipart/form-data" class="form-container">
+            <input type="hidden" name="productId" value="${product.productId}" />
             <div class="form-item">
                 <label for="productName">商品名称：</label>
-                <input type="text" id="productName" name="productName" value="${product.productName}" class="input-text" />
+                <input type="text" id="productName" name="productName" value="${product.productName}" class="input-text" required/>
             </div>
             <div class="form-item">
                 <label for="productPrice">商品价格：</label>
-                <input type="text" id="productPrice" name="productPrice" value="${product.productPrice}" class="input-text" />
+                <input type="text" id="productPrice" name="productPrice" value="${product.productPrice}" class="input-text" required/>
             </div>
             <div class="form-item">
                 <label for="pnum">商品数量：</label>
-                <input type="text" id="pnum" name="pnum" value="${product.pnum}" class="input-text" />
+                <input type="text" id="pnum" name="pnum" value="${product.pnum}" class="input-text" required/>
             </div>
             <div class="form-item">
                 <label for="category">商品类别：</label>
                 <select name="category" id="category" value="${product.category}" class="select">
-                    <option value="" selected>--选择商品类别--</option>
+                    <option value="" selected="selected">--选择商品类别--</option>
                     <option value="books">书籍</option>
                     <option value="clothing">服装</option>
                     <option value="daily life">生活</option>

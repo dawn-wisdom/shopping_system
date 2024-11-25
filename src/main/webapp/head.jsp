@@ -51,7 +51,7 @@
                     <a href="login.jsp">登录</a>
                     <a href="register.jsp">注册</a>
                     <a href="Logout">注销</a>
-                    <a class="orders-link header-link" href="OrderManage?request_type=0">查看订单</a>
+                    <a class="orders-link header-link" href="OrderManage?request_type=0">历史订单</a>
                 </div>
             </div>
         </div>

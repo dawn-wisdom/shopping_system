@@ -79,7 +79,12 @@ public class EditProductServlet extends HttpServlet {
 
             product.setProductImage(ossUrl);
         }
-
+        System.out.println(request.getParameter("productId"));
+        System.out.println(request.getParameter("productName"));
+        System.out.println(Double.parseDouble(request.getParameter("productPrice")));
+        System.out.println(Integer.parseInt(request.getParameter("pnum")));
+        System.out.println(request.getParameter("category"));
+        System.out.println(request.getParameter("description"));
         product.setProductId(Integer.parseInt(request.getParameter("productId")));
         product.setProductName(request.getParameter("productName"));
         product.setProductPrice(Double.parseDouble(request.getParameter("productPrice")));
