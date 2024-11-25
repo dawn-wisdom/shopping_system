@@ -4,6 +4,7 @@ import entity.Product;
 
 import java.sql.*;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import utils.DataSourceUtils;
 public class ProductsSaledDao {
@@ -15,17 +16,16 @@ public class ProductsSaledDao {
                     "GROUP BY p.productId " +
                     "order by total_sales desc";
     public Map<Product, Integer> getSalesLeaderboard() {
-        Map<Product, Integer> leaderboard = new HashMap<>();
+        Map<Product, Integer> leaderboard = new LinkedHashMap<>();
         try (Connection conn = DataSourceUtils.getConnection();
              PreparedStatement stmt = conn.prepareStatement(QUERY);
              ResultSet rs = stmt.executeQuery()) {
-
+            System.out.println(QUERY);
             while (rs.next()) {
                 int productId = rs.getInt("productId");
                 String productName = rs.getString("productName");
                 String productImage = rs.getString("productImage");
                 int totalSales = rs.getInt("total_sales");
-                System.out.println(productId);
                 Product product = new Product();
                 product.setProductId(productId);
                 product.setProductName(productName);

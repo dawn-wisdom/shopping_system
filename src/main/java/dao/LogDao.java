@@ -53,7 +53,7 @@ public class LogDao {
 
     public List<OrderItem> getPurchaseProductDao(int orderId) throws SQLException {
         List<OrderItem> orderItems=null;
-        String sql = " SELECT oi.orderId,p.ProductId,p.productName,oi.quantity " +
+        String sql = " SELECT oi.orderId,p.ProductId,p.productName,p.productImage,oi.quantity " +
                 " FROM products p,orderitems oi " +
                 " WHERE p.productId=oi.productId  and oi.orderId=?" ;
 
@@ -72,6 +72,7 @@ public class LogDao {
                     Product p = new Product();
                     p.setProductId(rs.getInt("productId"));
                     p.setProductName(rs.getString("productName"));
+                    p.setProductImage(rs.getString("productImage"));
                     item.setProduct(p);
                     items.add(item);
                 }

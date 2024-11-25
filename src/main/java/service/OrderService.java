@@ -55,6 +55,11 @@ public class OrderService {
         try {
             // 查找出订单信息
             orders = orderDao.findAllOrder();
+            for(Order order:orders)
+            {
+                List<OrderItem> ois=orderItemDao.findOrderItemsById(order.getOrderId());
+                order.setOrderItems(ois);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

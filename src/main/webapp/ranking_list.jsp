@@ -5,42 +5,45 @@
 <html>
 <head>
     <title>销售榜单</title>
+    <link rel="stylesheet" type="text/css" href="css/ranking_list.css">
 </head>
 <body>
-<div class="container">
-    <h1 class="mt-4 mb-4">商品销售榜单</h1>
-    <table class="table table-bordered table-hover">
+    <div class="container">
+        <h1 class="mt-4 mb-4">商品销售榜单</h1>
 
-            <tr>
-                <th>商品编号</th>
-                <th>商品名称</th>
-                <th>商品图片</th>
-                <th>销量</th>
-            </tr>
+        <div class="leaderboard">
+            <div class="leaderboard-header">
+                <div class="header-item">商品编号</div>
+                <div class="header-item">商品名称</div>
+                <div class="header-item">商品图片</div>
+                <div class="header-item">销量</div>
+            </div>
 
             <c:forEach var="entry" items="${leaderboard}">
-                <tr>
-                    <td>${entry.key.productId}</td>
-                    <td>${entry.key.productName}</td>
-                    <td><img src="${entry.key.productImage}" alt="${entry.key.productName}" style="width:100px;height:100px;"></td>
-                    <td>${entry.value}</td>
-                </tr>
+                <div class="leaderboard-item">
+                    <div class="leaderboard-item-content">${entry.key.productId}</div>
+                    <div class="leaderboard-item-content">${entry.key.productName}</div>
+                    <div class="leaderboard-item-content">
+                        <img src="${entry.key.productImage}" alt="${entry.key.productName}" class="product-image"/>
+                    </div>
+                    <div class="leaderboard-item-content">${entry.value}</div>
+                </div>
             </c:forEach>
+        </div>
 
-    </table>
+        <!-- 分页控件 -->
+        <div class="pagination">
+            <c:if test="${currentPage > 1}">
+                <a href="ProductsSaled?page=${currentPage - 1}" class="page-link">上一页</a>
+            </c:if>
 
-    <!-- 分页控件 -->
-    <div>
-        <c:if test="${currentPage > 1}">
-            <a href="ProductsSaled?page=${currentPage - 1}">上一页</a>
-        </c:if>
+            <span class="current-page">页 ${currentPage} / ${totalPages}</span>
 
-        <span>页 ${currentPage} / ${totalPages}</span>
-
-        <c:if test="${currentPage < totalPages}">
-            <a href="ProductsSaled?page=${currentPage + 1}">下一页</a>
-        </c:if>
+            <c:if test="${currentPage < totalPages}">
+                <a href="ProductsSaled?page=${currentPage + 1}" class="page-link">下一页</a>
+            </c:if>
+        </div>
     </div>
-</div>
+
 </body>
 </html>

@@ -4,75 +4,89 @@
 <html>
 <head>
 	<title>订单管理</title>
-	<script>
-        function updateOrderStatus(button, currentStatus, orderId) {
-            // 获取对应 id 的元素
-            var statusElement = document.getElementById("status-" + orderId);
-             // 获取该元素的文本内容
-                var statusText = statusElement.innerText;
-             console.log(statusText)
-             if(statusText==="已支付")
-             {
-                var newStatus=2;
-                statusElement.innerText="已发货"
-                location.href = "${pageContext.request.contextPath}/UpdateOrderStatus?orderId="
-                        + orderId + "&newStatus=" + newStatus;
-             }
-        }
-    </script>
+	<link rel="stylesheet" type="text/css" href="css/orderManage.css">
 </head>
-<body class="main">
-	<!-- 使用了自定义标签 -->
-	<p:user/>
-	<jsp:include page="head.jsp" />
-	<jsp:include page="menu.jsp" />
-        <div>
-            <table cellspacing="0" class="infocontent">
-                <tr>
-                    <td style="padding:20px"><p><b>本店订单</b></p>
-                        <p>
-                            共有<font style="color:#FF0000" >${orders.size()}</font>订单
-                        </p>
-                        <table width="100%" border="0" cellspacing="0" class="tableopen">
-                            <tr>
-                                <td bgcolor="#A3E6DF" class="tableopentd01">订单号</td>
-                                <td bgcolor="#A3D7E6" class="tableopentd01">收件人</td>
-                                <td bgcolor="#A3CCE6" class="tableopentd01">订单时间</td>
-                                <td bgcolor="#A3B6E6" class="tableopentd01">状态</td>
-                                <td bgcolor="#A3E2E6" class="tableopentd01">操作</td>
-                            </tr>
-                            <c:forEach items="${orders}" var="order">
-                                <tr>
-                                    <td class="tableopentd02">${order.orderId}</td>
-                                    <td class="tableopentd02">${order.receive_name }</td>
-                                    <td class="tableopentd02">${order.order_time}</td>
-                                    <td class="tableopentd02" id="status-${order.orderId}">
-                                        <c:choose>
-                                            <c:when test="${order.status == 0}">未支付</c:when>
-                                            <c:when test="${order.status == 1}">已支付</c:when>
-                                            <c:when test="${order.status == 2}">已发货</c:when>
-                                            <c:when test="${order.status == 3}">已送达</c:when>
-                                            <c:otherwise>未知状态</c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                    <td class="tableopentd03">
-                                        <a href="${pageContext.request.contextPath}/ShowOrderDetail?orderId=${order.orderId}">查看</a>&nbsp;&nbsp;
-
-                                        <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">删除</a>
-                                        <c:if test="${order.status == 1}">
-                                            <button class="updateStatusButton"
-                                                    onclick="updateOrderStatus(this, ${order.status}, ${order.orderId})">
-                                                确认发货
-                                            </button>
-                                        </c:if>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+<body>
+    <div class="main">
+        <div class="page-title">
+            全部订单
         </div>
-	<%@ include file="foot.jsp" %>
+        <div class="total-orders">
+            总共 ${orders.size()} 个订单
+        </div>
+        <div class="orders-grid">
+            <c:forEach items="${orders}" var="order">
+                <div class="order-container">
+                    <div class="order-header">
+                        <div class="order-header-item">
+                            <div class="order-header-label">订单建立时间:</div>
+                            <div>${order.order_time}</div>
+                        </div>
+                        <div class="order-header-item">
+                            <div class="order-header-label">用户:</div>
+                            <div>${order.customerId}</div>
+                        </div>
+                        <div class="order-header-item">
+                            <div class="order-header-label">总价：</div>
+                            <div>$${order.total_cost}</div>
+                        </div>
+                        <div class="order-header-item">
+                            <div class="order-header-label">订单编号:</div>
+                            <div>${order.orderId}</div>
+                        </div>
+                        <div class="order-header-item">
+                            <div class="order-header-label">订单状态:</div>
+                            <div>
+                                <c:choose>
+                                    <c:when test="${order.status == 0}">未支付</c:when>
+                                    <c:when test="${order.status == 1}">待发货</c:when>
+                                    <c:when test="${order.status == 2}">待送达</c:when>
+                                    <c:when test="${order.status == 3}">已送达</c:when>
+                                    <c:otherwise>未知状态</c:otherwise>
+                                </c:choose>
+                            </div>
+                            <c:if test="${order.status == 1}">
+                                <a href="${pageContext.request.contextPath}/UpdateOrderStatus?orderId=${order.orderId}&newStatus=${order.status+1}">
+                                    <button class="updateStatusButton" >
+                                        货物已送出？
+                                    </button>
+                                </a>
+                            </c:if>
+                        </div>
+
+
+                        <div class="order-header-item">
+                            <div class="order-header-label">操作:</div>
+                            <div class="operations">
+                                <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">
+                                    <button type="button">删除</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-details-grid">
+                        <c:forEach var="item" items="${order.orderItems}">
+                            <div class="product-image-container">
+                                <img src="${item.product.productImage}" alt="图片暂时无法显示">
+                            </div>
+                            <div class="product-details">
+                                <div class="product-name">
+                                    ${item.product.productName}
+                                </div>
+                                <div class="product-quantity">
+                                    数量：${item.quantity}
+                                </div>
+                                <div class="product-cost">
+                                    小计：${item.quantity * item.product.productPrice}
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+
 </body>
 </html>

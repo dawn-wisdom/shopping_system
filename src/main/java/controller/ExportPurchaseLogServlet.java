@@ -42,9 +42,9 @@ public class ExportPurchaseLogServlet extends HttpServlet {
             // 遍历订单，写入内容
             for (Order order : logs) {
                 String orderTime = sdf.format(order.getOrder_time());
-                String productStr = order.getOrderItems().stream()
+                String productStr = "\"" + order.getOrderItems().stream()
                         .map(item -> item.getProduct().getProductName() + "*" + item.getQuantity())
-                        .collect(Collectors.joining(", "));
+                        .collect(Collectors.joining(", ")) + "\"";
 
                 writer.printf("%d,%d,%s,%s,%.2f,%s%n",
                         order.getOrderId(),
