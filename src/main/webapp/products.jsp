@@ -8,64 +8,62 @@
     <link rel="stylesheet" type="text/css" href="css/products.css">
 </head>
 <body>
-<a href="login.jsp">登录</a>
-<a href="register.jsp">注册</a>
-<a href="${pageContext.request.contextPath}/Logout">注销</a>
-<a href="cart.jsp?">查看购物车</a>
-<a href="${pageContext.request.contextPath}/OrderManage?request_type=0">查询历史订单</a>
 
-<div class="products-grid">
-    <c:if test="${not empty products}">
-        <c:forEach var="product" items="${products}">
-            <div class="product-container" data-product-id="${product.productId}">
-                <!-- 产品图片 -->
-                <div class="product-image-container">
-                    <img class="product-image" src="${product.productImage}" alt="${product.productName}">
-                </div>
-
-                <!-- 产品名称 -->
-                <div class="product-name limit-text-to-2-lines">
-                    ${product.productName}
-                </div>
-                <!-- 产品价格 -->
-                <div class="product-price">
-                    $${product.productPrice}
-                </div>
-
-                <!-- 产品数量选择 -->
-                <div class="product-quantity-pnum">
-                    <label for="quantity-${product.productId}">选择数量:</label>
-                    <select class="quantity" id="quantity-${product.productId}">
-                        <c:forEach var="i" begin="1" end="10">
-                            <option value="${i}">${i}</option>
-                        </c:forEach>
-                    </select>
-                     <div class="product-pnum">
-                            剩余: ${product.pnum}
-                     </div>
-                </div>
-                <div class="product-spacer"></div>
-                <!-- 操作按钮 -->
-                <div class="product-operation-container">
-                    <div class="add-to-cart">
-                        <a href="${pageContext.request.contextPath}/AddToCartServlet?productId=${product.productId}">
-                            <button type="button">加入购物车</button>
-                        </a>
+<jsp:include page="head.jsp"/>
+<div class="main">
+    <div class="products-grid">
+        <c:if test="${not empty products}">
+            <c:forEach var="product" items="${products}">
+                <div class="product-container" data-product-id="${product.productId}">
+                    <!-- 产品图片 -->
+                    <div class="product-image-container">
+                        <img class="product-image" src="${product.productImage}" alt="${product.productName}">
                     </div>
-                    <div class="buy-immediately">
-                        <a id="buy_immediate-${product.productId}" href="${pageContext.request.contextPath}/Select2BuyServlet?productId=${product.productId}&quantity=1">
-                            <button type="button">立即购买</button>
-                        </a>
+
+                    <!-- 产品名称 -->
+                    <div class="product-name limit-text-to-2-lines">
+                        ${product.productName}
                     </div>
-                    <div class="add-to-cart">
-                        <a href="${pageContext.request.contextPath}/ShowProductDetailServlet?productId=${product.productId}">
-                            <button type="button">查看详情</button>
-                        </a>
+                    <!-- 产品价格 -->
+                    <div class="product-price">
+                        $${product.productPrice}
+                    </div>
+
+                    <!-- 产品数量选择 -->
+                    <div class="product-quantity-pnum">
+                        <label for="quantity-${product.productId}">选择数量:</label>
+                        <select class="quantity" id="quantity-${product.productId}">
+                            <c:forEach var="i" begin="1" end="10">
+                                <option value="${i}">${i}</option>
+                            </c:forEach>
+                        </select>
+                         <div class="product-pnum">
+                                剩余: ${product.pnum}
+                         </div>
+                    </div>
+                    <div class="product-spacer"></div>
+                    <!-- 操作按钮 -->
+                    <div class="product-operation-container">
+                        <div class="add-to-cart">
+                            <a href="${pageContext.request.contextPath}/AddToCartServlet?productId=${product.productId}">
+                                <button type="button">加入购物车</button>
+                            </a>
+                        </div>
+                        <div class="buy-immediately">
+                            <a id="buy_immediate-${product.productId}" href="${pageContext.request.contextPath}/Select2BuyServlet?productId=${product.productId}&quantity=1">
+                                <button type="button">立即购买</button>
+                            </a>
+                        </div>
+                        <div class="add-to-cart">
+                            <a href="${pageContext.request.contextPath}/ShowProductDetailServlet?productId=${product.productId}">
+                                <button type="button">查看详情</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
-    </c:if>
+            </c:forEach>
+        </c:if>
+    </div>
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {

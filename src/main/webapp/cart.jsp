@@ -82,11 +82,12 @@
 
 </head>
 <body>
-
+    <jsp:include page="head.jsp"/>
     <form action="Select2BuyServlet" method="post" id="orderForm">
         <c:if test="${not empty cart}">
+        <div class="cart-container">
             <c:forEach items="${cart}" var="entry" varStatus="vs">
-            <div class="cart-container">
+                <div class="product-container">
                    <div class="container1">
                         <div class="selectedBox">
                             <input type="checkbox" name="selectedItems" value="${entry.key.productId}"
@@ -135,7 +136,9 @@
                         <a href="${pageContext.request.contextPath}/CartChange?productId=${entry.key.productId}&quantity=0">移除</button></a>
                     </div>
                 </div>
+
             </c:forEach>
+        </div>
             <div class="bill">
                 <!-- 账单部分 -->
                 <div class="bill">
@@ -158,8 +161,6 @@
     <c:if test="${empty cart}">
         <div class="empty-notice">购物车为空</class>
     </c:if>
-
-
 
 </body>
 </html>

@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/orderHistory.css">
 </head>
 <body>
+    <jsp:include page="head.jsp"/>
     <div class="main">
         <div class="page-title">
             我的订单
