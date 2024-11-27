@@ -36,4 +36,9 @@ public class CustomerService {
         return customerDao.register(customer);
     }
 
+    public Customer findCustomerById(int id) {
+        Customer customer=null;
+        customer=customerDao.findCustomerById(id);
+        return customer;
+    }
 }

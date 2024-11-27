@@ -22,14 +22,14 @@ public class LogDao {
             querySql=" SELECT o.orderId,o.customerId,o.order_time,o.total_cost,o.status  " +
                     " FROM orders o " +
                     "where status>0 " +
-                    " order by Order_time ";
+                    " order by customerId,Order_time desc ";
         }
         else
         {
             querySql=" SELECT o.orderId,o.customerId,o.order_time,o.total_cost,o.status  " +
                     " FROM orders o " +
                     "where status>0 " +
-                    " order by Order_time "+
+                    " order by customerId,Order_time desc "+
                     "LIMIT 20";
         }
         QueryRunner queryRunner=new QueryRunner(DataSourceUtils.getDataSource());
