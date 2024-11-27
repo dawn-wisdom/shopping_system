@@ -13,4 +13,17 @@ public class SendMailService {
            return false;
        }
     }
+
+    public  boolean sendMail2Seller(int orderId)
+    {
+        if(sendMailDao.sendMail2Seller(orderId))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

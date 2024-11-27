@@ -50,4 +50,20 @@ public class CustomerDao {
         return customer;
     }
 
+    public Customer findCustomerById(int id)
+    {
+        String sql="select * from Customers where customerId=?";
+        QueryRunner runner=new QueryRunner(DataSourceUtils.getDataSource());
+        Customer customer=null;
+        try
+        {
+            customer=runner.query(sql,new BeanHandler<>(Customer.class),id);
+
+        }catch (SQLException e)
+        {
+            e.printStackTrace();
+            System.out.println("查无此顾客");
+        }
+        return customer;
+    }
 }

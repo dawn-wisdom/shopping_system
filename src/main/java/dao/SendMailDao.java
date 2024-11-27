@@ -45,13 +45,30 @@ public class SendMailDao {
     public boolean sendMail2Customer(String reciever) {
         String subject = "您的商品已经发货，请注意查收";
         String messageContent = "您的商品已发货，预计三天内送达，请您注意查收";
-
+        System.out.println(reciever);
         if(sendEmail(reciever, subject, messageContent))
         {
             return true;
         }
         else
         {
+            System.out.println("邮箱有误");
+            return false;
+        }
+    }
+
+    public boolean sendMail2Seller(int orderId){
+        String sellerMail="1466840216@qq.com";
+        String subject = "顾客已经确认收货";
+        String messageContent = "订单号 %d 顾客已经确认收货，订单完成";
+        System.out.println(sellerMail);
+        if(sendEmail(sellerMail, subject, String.format(messageContent,orderId)))
+        {
+            return true;
+        }
+        else
+        {
+            System.out.println("邮箱有误");
             return false;
         }
     }

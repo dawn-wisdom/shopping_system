@@ -47,7 +47,7 @@
                                 </c:choose>
                             </div>
                             <c:if test="${order.status == 1}">
-                                <a href="${pageContext.request.contextPath}/UpdateOrderStatus?orderId=${order.orderId}&newStatus=${order.status+1}">
+                                <a href="${pageContext.request.contextPath}/UpdateOrderStatus?orderId=${order.orderId}&newStatus=${order.status+1}&customerId=${order.customerId}">
                                     <button class="updateStatusButton" >
                                         货物已送出？
                                     </button>
