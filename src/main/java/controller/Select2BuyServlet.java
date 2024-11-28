@@ -17,12 +17,8 @@ import javax.servlet.http.HttpSession;
 public class Select2BuyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ProductService productService=new ProductService();
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 处理 GET 请求
-        doPost(request,response);
-    }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: 处理 POST 请求
         // 获取选中的商品 ID 列表
         String selectedItemIdsStr = request.getParameter("selectedItemIds");
@@ -77,5 +73,9 @@ public class Select2BuyServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/submitOrder.jsp");
         }
 
+    }
+
+    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+        doGet(request,response);
     }
 }

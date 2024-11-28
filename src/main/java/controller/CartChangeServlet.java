@@ -13,11 +13,8 @@ import entity.Product;
  *
  */
 public class CartChangeServlet extends HttpServlet {
+
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doPost(request, response);
-    }
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // 1.得到商品id
         int id = Integer.parseInt(request.getParameter("productId"));

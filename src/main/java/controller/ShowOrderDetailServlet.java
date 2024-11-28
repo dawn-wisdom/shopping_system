@@ -23,9 +23,6 @@ public class ShowOrderDetailServlet extends HttpServlet {
         request.getRequestDispatcher("showOrderDetail.jsp").forward(request,response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 处理 POST 请求
-        doGet(request,response);
-    }
+
 }
 

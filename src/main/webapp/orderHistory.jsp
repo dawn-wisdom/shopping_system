@@ -60,7 +60,7 @@
                                         </a>
                                     </c:when>
                                     <c:when test="${order.status==3}">
-                                        <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">
+                                        <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}&request_type=0">
                                             <button type="button">删除</button>
                                         </a>
                                     </c:when>
@@ -95,6 +95,5 @@
         </div>
     </div>
 
-	<%@ include file="foot.jsp" %>
 </body>
 </html>

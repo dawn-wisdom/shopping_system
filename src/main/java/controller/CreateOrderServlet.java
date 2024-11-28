@@ -20,7 +20,7 @@ import org.apache.commons.beanutils.BeanUtils;
 public class CreateOrderServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: 处理 GET 请求
         //获取所有的商品
         HttpSession session = request.getSession();
@@ -72,8 +72,4 @@ public class CreateOrderServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/payment.jsp?orderId=" + orderId + "&total_cost=" + total_cost);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 处理 POST 请求
-        doGet(request,response);
-    }
 }

@@ -17,13 +17,13 @@ public class DeleteOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: 处理 GET 请求
         int orderId=Integer.parseInt(request.getParameter("orderId"));
+        int request_type=Integer.parseInt(request.getParameter("request_type"));
         orderService.deleteOrderById(orderId);
-        response.sendRedirect("OrderManage?request_type=0");
+        if(request_type==0)
+            response.sendRedirect("OrderManage?request_type=0");
+        else
+            response.sendRedirect("OrderManage?request_type=1");
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 处理 POST 请求
-        doGet(request,response);
-    }
 }
 
