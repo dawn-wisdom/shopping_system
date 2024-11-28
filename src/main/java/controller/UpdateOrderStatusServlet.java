@@ -18,7 +18,7 @@ public class UpdateOrderStatusServlet extends HttpServlet {
     private OrderService orderService=new OrderService();
     private SendMailService sendMailService=new SendMailService();
     private CustomerService customerService=new CustomerService();
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 设置字符编码
         request.setCharacterEncoding("UTF-8");
 
@@ -33,10 +33,7 @@ public class UpdateOrderStatusServlet extends HttpServlet {
         if (rowsUpdated > 0) {
             if(newStatus==1)//确认支付
             {
-
-
                 request.getRequestDispatcher("afterPay.jsp").forward(request, response);// 转发
-
             }
             else if(newStatus==2)//确认发货
             {
@@ -58,8 +55,5 @@ public class UpdateOrderStatusServlet extends HttpServlet {
         } else {
             response.getWriter().write("failure");
         }
-    }
-    protected void doGet(HttpServletRequest request,HttpServletResponse response)throws  ServletException,IOException{
-        doPost(request,response);
     }
 }

@@ -60,7 +60,7 @@
                             <div class="order-header-label">操作:</div>
                             <div class="operations">
                                 <c:if test="${order.status==3}">
-                                    <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}">
+                                    <a href="${pageContext.request.contextPath}/DeleteOrder?orderId=${order.orderId}&request_type=1">
                                         <button type="button">删除</button>
                                     </a>
                                 </c:if>

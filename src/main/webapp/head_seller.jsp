@@ -46,12 +46,7 @@
             <img class="logo" src="img/logo.png">
             </a>
         </div>
-        <div class="header-middle-section">
-            <input class="search-bar" type="text" placeholder="Search">
-            <button class="search-button">
-            <img class="search-icon" src="img/search-icon.png">
-            </button>
-        </div>
+
 
         <div class="header-right-section">
 

@@ -20,9 +20,5 @@ public class DeleteProductServlet extends HttpServlet {
         response.sendRedirect("ShowProductInStore");
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 处理 POST 请求
-        doGet(request,response);
-    }
 }
 

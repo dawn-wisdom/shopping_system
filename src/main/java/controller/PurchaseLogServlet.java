@@ -24,8 +24,5 @@ public class PurchaseLogServlet extends HttpServlet {
         request.getRequestDispatcher("/purchaseLog.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
-    }
 }
 
