@@ -23,10 +23,10 @@ import java.util.UUID;
 @MultipartConfig
 public class AddProductServlet extends HttpServlet {
     ProductService productService=new ProductService();
-    private static final String OSS_ENDPOINT = "oss-cn-guangzhou.aliyuncs.com";  // 设置为你的 OSS 区域
-    private static final String ACCESS_KEY_ID = "LTAI5tAZf7LdGAiPUmRVRrUh";  // 你的阿里云 AccessKeyId
-    private static final String ACCESS_KEY_SECRET = "dyhjo6O89mpXl5r4nP2l3qzjsQUE7n";  // 你的阿里云 AccessKeySecret
-    private static final String BUCKET_NAME = "bucket4product";  // 你的 OSS 存储桶名称
+    private static final String OSS_ENDPOINT = "oss-cn-guangzhou.aliyuncs.com";  // 设置为 OSS 区域
+    private static final String ACCESS_KEY_ID = "LTAI5tAZf7LdGAiPUmRVRrUh";  // 阿里云 AccessKeyId
+    private static final String ACCESS_KEY_SECRET = "dyhjo6O89mpXl5r4nP2l3qzjsQUE7n";  // 阿里云 AccessKeySecret
+    private static final String BUCKET_NAME = "bucket4product";  //  OSS 存储桶名称
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Enumeration<String> paramNames = request.getParameterNames();
@@ -42,7 +42,7 @@ public class AddProductServlet extends HttpServlet {
         // 获取上传的文件
         request.setCharacterEncoding("UTF-8");  // 设置请求字符编码
         response.setContentType("text/html;charset=UTF-8");  // 设置响应字符编码
-        Part filePart = request.getPart("image");  // "image" 是 HTML 表单中 file input 的 name 属性
+        Part filePart = request.getPart("image");
         String fileName = getFileName(filePart);  // 获取文件名
 
         if (fileName == null || fileName.isEmpty()) {
@@ -59,7 +59,6 @@ public class AddProductServlet extends HttpServlet {
         try {
             response.setContentType("text/html");
             // 创建一个唯一的文件名，避免文件名冲突
-
             //response.getWriter().write("文件名为： "+objectKey+"<br>");
             // 上传文件到 OSS
             PutObjectRequest putObjectRequest = new PutObjectRequest(BUCKET_NAME, objectKey, inputStream);
@@ -67,7 +66,7 @@ public class AddProductServlet extends HttpServlet {
 
             // 返回上传成功的结果
             response.setContentType("text/html");
-            //response.getWriter().write("File uploaded successfully. <br>File URL: https://your-bucket-name.oss-cn-region.aliyuncs.com/" + objectKey);
+
 
         } catch (Exception e) {
             e.printStackTrace();

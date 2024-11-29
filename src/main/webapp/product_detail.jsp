@@ -27,16 +27,26 @@
             <div class="product-price">
                 价格: $${selected_product.productPrice}
             </div>
-
+            <%
+                // 从请求属性中获取 product 对象
+                Product product = (Product) request.getAttribute("selected_product");
+                int pnum=0;
+                // 确保 product 对象不为 null，然后调用 getPnum() 方法
+                if (product != null) {
+                    pnum = product.getPnum();  // 调用 getPnum() 方法
+                }
+                int maxQuantity = Math.min(10, pnum);  // 计算 min(10, pnum)
+                pageContext.setAttribute("maxQuantity", maxQuantity);  // 将最大数量设置
+            %>
             <div class="product-quantity-pnum">
-                <label for="quantity}">选择数量:</label>
+                <label for="quantity-${product.productId}">选择数量:</label>
                 <select class="quantity" id="quantity">
-                    <c:forEach var="i" begin="1" end="10">
+                    <c:forEach var="i" begin="1" end="${selected_product.pnum>10?10:selected_product.pnum}">
                         <option value="${i}">${i}</option>
                     </c:forEach>
                 </select>
                  <div class="product-pnum">
-                        库存: ${selected_product.pnum}
+                        剩余: ${selected_product.pnum}
                  </div>
             </div>
             <div class="product-operation-container">
@@ -63,5 +73,6 @@
             buy_immediate_link.href = 'Select2BuyServlet?productId='+productId+'&quantity='+selectedQuantity;
         });
     </script>
+
 </body>
 </html>

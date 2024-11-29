@@ -6,6 +6,9 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
 import utils.DataSourceUtils;
 public class ProductsSaledDao {
 
@@ -15,26 +18,27 @@ public class ProductsSaledDao {
                     "where p.productId = oi.productId " +
                     "GROUP BY p.productId " +
                     "order by total_sales desc";
-    public Map<Product, Integer> getSalesLeaderboard() {
-        Map<Product, Integer> leaderboard = new LinkedHashMap<>();
-        try (Connection conn = DataSourceUtils.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(QUERY);
-             ResultSet rs = stmt.executeQuery()) {
-            System.out.println(QUERY);
-            while (rs.next()) {
-                int productId = rs.getInt("productId");
-                String productName = rs.getString("productName");
-                String productImage = rs.getString("productImage");
-                int totalSales = rs.getInt("total_sales");
-                Product product = new Product();
-                product.setProductId(productId);
-                product.setProductName(productName);
-                product.setProductImage(productImage);
-                leaderboard.put(product, totalSales);
+    QueryRunner queryRunner=new QueryRunner(DataSourceUtils.getDataSource());
+
+    public Map<Product, Integer> getSalesLeaderboard() throws SQLException {
+        QueryRunner queryRunner=new QueryRunner(DataSourceUtils.getDataSource());
+        return queryRunner.query(QUERY,new ResultSetHandler <Map<Product, Integer>>(){
+            public Map<Product, Integer> handle(ResultSet rs) throws SQLException{
+                Map<Product, Integer> leaderboard = new LinkedHashMap<>();
+                while (rs.next()) {
+                    int productId = rs.getInt("productId");
+                    String productName = rs.getString("productName");
+                    String productImage = rs.getString("productImage");
+                    int totalSales = rs.getInt("total_sales");
+                    Product product = new Product();
+                    product.setProductId(productId);
+                    product.setProductName(productName);
+                    product.setProductImage(productImage);
+                    leaderboard.put(product, totalSales);
+                }
+                return leaderboard;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return leaderboard;
+        });
+
     }
 }

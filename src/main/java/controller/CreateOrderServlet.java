@@ -38,22 +38,11 @@ public class CreateOrderServlet extends HttpServlet {
             order.setTotal_cost(Double.parseDouble(total_cost_str));
         }
         order.setStatus(0);
-        //设置次日发货
         Date today = new Date();
-        order.setOrder_time(today);
+        order.setOrder_time(today);//获取当前日期
         order.setReceive_address(request.getParameter("receive_address"));
         order.setReceive_phone(request.getParameter("receive_phone"));
         order.setReceive_name(request.getParameter("receive_name"));
-        //
-        /*
-        try {
-            BeanUtils.populate(order, request.getParameterMap());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }*/
-
 
         for (Product p : buy.keySet()) {
             OrderItem item = new OrderItem();
@@ -63,7 +52,6 @@ public class CreateOrderServlet extends HttpServlet {
             order.getOrderItems().add(item);
         }
         // 4.调用service中添加订单操作.
-
         OrderService service = new OrderService();
         int orderId=service.createOrder(order);
         session.removeAttribute("product2Buy");

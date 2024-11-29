@@ -123,7 +123,7 @@
                                 <input name="quantity" type="text"
                                        id="quantity-${entry.key.productId}"
                                        value="${entry.value}"
-                                       style="width:40px;text-align:center">
+                                       style="width:40px;text-align:center" readonly>
 
                                 <!-- 增加按钮 -->
                                 <input type="button" value="+"

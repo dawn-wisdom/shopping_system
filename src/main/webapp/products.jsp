@@ -29,12 +29,11 @@
                         <div class="product-price">
                             $${product.productPrice}
                         </div>
-
                         <!-- 产品数量选择 -->
                         <div class="product-quantity-pnum">
                             <label for="quantity-${product.productId}">选择数量:</label>
                             <select class="quantity" id="quantity-${product.productId}">
-                                <c:forEach var="i" begin="1" end="10">
+                                <c:forEach var="i" begin="1" end="${product.pnum > 10 ? 10 : product.pnum}">
                                     <option value="${i}">${i}</option>
                                 </c:forEach>
                             </select>
@@ -155,5 +154,35 @@
         });
     </script>
 
+<script>
+    window.onload = function() {
+        var productId = ${product.productId};  // 当前商品的ID
+        var pnum = ${product.pnum};  // 当前商品的剩余数量
+
+        // 获取当前商品的下拉框
+        var selectElement = document.getElementById("quantity-" + productId);
+
+        // 禁用多余的选项
+        for (var i = 1; i <= 10; i++) {
+            var option = selectElement.options[i - 1];
+            if (i > pnum) {
+                option.disabled = true;  // 禁用数量大于剩余数量的选项
+            } else {
+                option.disabled = false;  // 启用数量小于等于剩余数量的选项
+            }
+        }
+    };
+
+    function validateQuantity(productId, pnum) {
+        var selectElement = document.getElementById("quantity-" + productId);
+        var selectedQuantity = parseInt(selectElement.value, 10);
+
+        // 如果选择的数量大于剩余数量，自动调整为剩余数量
+        if (selectedQuantity > pnum) {
+            selectElement.value = pnum;
+            alert("选择的数量不能超过剩余数量！");
+        }
+    }
+</script>
 </body>
 </html>

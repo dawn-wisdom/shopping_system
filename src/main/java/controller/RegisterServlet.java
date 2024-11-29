@@ -44,6 +44,9 @@ public class RegisterServlet extends HttpServlet {
 				rel=customerService.register(userName,pwd1,email,phone);
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			} catch (SQLException e) {
+				request.setAttribute("errorMessage", "注册失败，该用户名已被使用");
+				// 登录失败通过转发，在回到登录界面继续进行登录
+				request.getRequestDispatcher("register.jsp").forward(request, response);// 转发
 				throw new RuntimeException(e);
 			}
 		}else {

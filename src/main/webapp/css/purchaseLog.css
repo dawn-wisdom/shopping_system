@@ -5,7 +5,50 @@
     margin: 0 auto;
     margin-top:60px;
 }
+.title-container {
+    display: flex;
+    justify-content: space-between; /* 两个元素水平分布在两端 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 0 20px; /* 为容器添加左右内边距 */
+}
 
+h1 {
+    margin: 0; /* 去除默认的上下外边距 */
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* 让输入框和按钮垂直居中对齐 */
+}
+
+#search-user-id {
+    padding: 5px 10px; /* 给输入框添加内边距 */
+    margin-right: 10px; /* 输入框和按钮之间添加间距 */
+    font-size: 16px; /* 设置输入框的字体大小 */
+    border: 1px solid #ccc; /* 设置边框 */
+    border-radius: 4px; /* 圆角边框 */
+}
+
+button {
+    background-color: #f5f5f5; /* 按钮背景色 */
+    border: none; /* 移除按钮的边框 */
+    color: white; /* 按钮文字颜色 */
+    padding: 6px 12px; /* 按钮内边距 */
+    border-radius: 4px; /* 圆角按钮 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+    display: flex; /* 使按钮内的图片垂直居中 */
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #cccccc; /* 按钮悬停时的背景色 */
+}
+
+.search-icon {
+    width: 20px; /* 设置搜索图标的宽度 */
+    height: 20px; /* 设置搜索图标的高度 */
+}
 /* 日志头部 */
 .purchase-log-header {
     display: flex;
@@ -71,3 +114,25 @@
 .export-log .btn:hover {
     background-color: #0056b3;
 }
+
+.highlight {
+    background-color: #f5f5f5;  /* 背景色设置为浅灰色 */
+    border: 2px solid #cccccc;  /* 边框颜色设置为灰色 */
+    animation: highlightAnimation 1s ease-out;  /* 添加动画效果 */
+}
+
+@keyframes highlightAnimation {
+    0% {
+        background-color: #f5f5f5;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #cccccc;  /* 中间时背景变为稍深灰色 */
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: #f5f5f5;
+        transform: scale(1);
+    }
+}
+

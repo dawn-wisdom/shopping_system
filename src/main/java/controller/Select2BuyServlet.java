@@ -52,7 +52,6 @@ public class Select2BuyServlet extends HttpServlet {
                     System.out.println("Invalid product ID: " + productIdStr);
                 }
             }
-
             /*
             for (Map.Entry<Product, Integer> entry : product2Buy.entrySet()) {
                 System.out.println("Selected Product: " + entry.getKey().getProductName() + ", Quantity: " + entry.getValue());
