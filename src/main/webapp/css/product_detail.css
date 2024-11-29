@@ -54,12 +54,14 @@ body {
     color: #666;
 }
 
-.product-category, .product-price, .product-pnum {
+.product-category, .product-price  {
     font-size: 20px; /* 增大字体 */
     margin-bottom: 20px;
     color: #555;
 }
-
+.product-pnum{
+    color: #555;
+}
 .product-quantity-pnum {
     display: flex;
     align-items: center;

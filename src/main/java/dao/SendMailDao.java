@@ -9,7 +9,6 @@ public class SendMailDao {
         String host = "smtp.qq.com";  // QQ 邮箱的 SMTP 服务器
         final String username = "1466840216@qq.com";  // 发件人邮箱
         final String password = "fvbrdlihikwyihdg";      // 授权码（不是邮箱密码）
-
         // 设置 SMTP 配置
         Properties properties = new Properties();
         properties.put("mail.smtp.host", host);

@@ -15,11 +15,11 @@ public class CustomerDao {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         int row = runner.update(sql, customer.getCustomerId(), customer.getCustomerName(),customer.getPassword(),customer.getEmail(),customer.getPhone());
         if (row == 0) {
-            System.out.println("注册失败");
+            //System.out.println("注册失败");
             rel=false;
             throw new RuntimeException();
         }
-        System.out.println("注册成功");
+        //System.out.println("注册成功");
         return rel;
     }
 

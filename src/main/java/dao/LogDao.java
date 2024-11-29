@@ -30,7 +30,7 @@ public class LogDao {
                     " FROM orders o " +
                     "where status>0 " +
                     " order by customerId,Order_time desc "+
-                    "LIMIT 20";
+                    "LIMIT 50";
         }
         QueryRunner queryRunner=new QueryRunner(DataSourceUtils.getDataSource());
 

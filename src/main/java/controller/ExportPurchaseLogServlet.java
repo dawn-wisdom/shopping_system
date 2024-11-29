@@ -30,15 +30,12 @@ public class ExportPurchaseLogServlet extends HttpServlet {
         try (PrintWriter writer = response.getWriter()) {
             // 写入 UTF-8 BOM，确保兼容性
             writer.write('\uFEFF');
-
             // 获取数据
             List<Order> logs = logService.getPurchaseLog(false);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
             // 写入 CSV 文件头部
             writer.println("订单号,用户ID,订单时间,商品,总价,订单状态");
             String[] statusStr = new String[]{"待支付", "待发货", "待收货", "已送达"};
-
             // 遍历订单，写入内容
             for (Order order : logs) {
                 String orderTime = sdf.format(order.getOrder_time());

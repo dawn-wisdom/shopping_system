@@ -106,9 +106,16 @@
   margin-bottom: 10px;
 }
 
+.product-quantity-pnum {
+    display: flex;              /* 使用 flexbox 布局 */
+    align-items: center;        /* 垂直居中对齐 */
+    gap: 5px;                  /* 元素间距，可以根据需要调整 */
+    justify-content: space-between;  /* 元素均匀分布 */
+    margin-bottom:5px;
+}
 .product-quantity-container {
     display: flex;  /* 使用 flex 布局 */
-    justify-content: space-between;  /* 元素均匀分布 */
+
     align-items: center;  /* 垂直居中对齐 */
     margin-bottom:20px;
 }

@@ -23,7 +23,6 @@ public class AddToCartServlet extends HttpServlet {
         int productId = Integer.parseInt(request.getParameter("productId"));
         Product product = productService.findProductById(productId);
         HttpSession session = request.getSession();
-
         //获取购物车
         Map<Product,Integer> cart=(Map<Product, Integer>) session.getAttribute("cart");
         if (cart == null) {
@@ -36,15 +35,15 @@ public class AddToCartServlet extends HttpServlet {
             cart.put(product, 1);
         } else {
             // 如果商品已经在购物车中，数量增加1
-            cart.put(product, quantity + 1);
+            if(quantity+1<=product.getPnum())
+                cart.put(product, quantity + 1);
         }
         System.out.println("成功加入到购物车");
         session.setAttribute("cart",cart);
         Cookie cookie=new Cookie("JSESSIONID",session.getId());
-        cookie.setMaxAge(30*24*60);//购物车的信息存储一个月
+        cookie.setMaxAge(30*24*60*60);//信息存储一个月
         // 获取来源页面的地址
         String referer = request.getHeader("Referer");
-
         // 如果 referer 存在，则重定向回来源页面
         if (referer != null) {
             response.sendRedirect(referer);
@@ -52,7 +51,6 @@ public class AddToCartServlet extends HttpServlet {
             // 如果没有 referer，则跳转到默认页面
             response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
-
     }
 }
 

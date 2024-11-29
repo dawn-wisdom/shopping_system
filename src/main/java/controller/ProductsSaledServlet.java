@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,12 @@ public class ProductsSaledServlet extends HttpServlet{
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Map<Product, Integer> leaderboard = productSaledService.getSalesLeaderboard();
+        Map<Product, Integer> leaderboard = null;
+        try {
+            leaderboard = productSaledService.getSalesLeaderboard();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("size:"+leaderboard.size());
         //request.setAttribute("leaderboard", leaderboard);
         // 获取当前页码，默认为第一页
