@@ -22,7 +22,5 @@ public class ShowOrderDetailServlet extends HttpServlet {
         request.setAttribute("order", order);
         request.getRequestDispatcher("showOrderDetail.jsp").forward(request,response);
     }
-
-
 }
 

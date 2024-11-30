@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!-- Appender: 定义日志输出目标 -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} [%t] %-5p %c{1} - %m%n"/>
+        </Console>
+        <!-- 按日期滚动的日志文件配置 -->
+        <RollingFile name="RollingFile" fileName="logs/view.log"
+                     filePattern="WEB-INF/logs/view-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>%d{ISO8601} [%t] %-5p %c{1} - %m%n</Pattern>
+            </PatternLayout>
+            <!-- 按日期进行滚动 -->
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <!-- Logger: 定义日志级别 -->
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

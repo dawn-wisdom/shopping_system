@@ -5,7 +5,7 @@
          version="4.0">
   <display-name>Archetype Created Web Application</display-name>
   <welcome-file-list>
-    <welcome-file>ShowAllProducts</welcome-file>
+    <welcome-file>ShowAllProduct</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -218,4 +218,12 @@
     <url-pattern>/ExportPurchaseLog</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ProductViewServlet</servlet-name>
+    <servlet-class>controller.ProductViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductViewServlet</servlet-name>
+    <url-pattern>/ProductView</url-pattern>
+  </servlet-mapping>
 </web-app>

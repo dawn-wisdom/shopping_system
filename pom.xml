@@ -117,6 +117,34 @@
       <version>1.6.2</version>
     </dependency>
 
+    <!-- SLF4J API -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.32</version>
+    </dependency>
+
+    <!-- Log4j2 API -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.20.0</version> <!-- Use the latest stable version -->
+    </dependency>
+
+    <!-- Log4j2 Core (for actual logging) -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.20.0</version> <!-- Ensure both versions match -->
+    </dependency>
+
+
+    <!-- Optionally, if you're using SLF4J binding for Log4j2 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.32</version>
+    </dependency>
   </dependencies>
 
   <build>
