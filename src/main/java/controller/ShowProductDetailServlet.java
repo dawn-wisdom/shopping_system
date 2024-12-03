@@ -23,7 +23,6 @@ public class ShowProductDetailServlet extends HttpServlet{
     private static final Logger logger = LogManager.getLogger(ShowProductDetailServlet.class);
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         // TODO: 处理 GET 请求
         int productId = Integer.parseInt(request.getParameter("productId"));
         Product product = productService.findProductById(productId);
