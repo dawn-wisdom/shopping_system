@@ -24,9 +24,9 @@ import java.util.UUID;
 public class EditProductServlet extends HttpServlet {
     ProductService productService=new ProductService();
     private static final String OSS_ENDPOINT = "oss-cn-guangzhou.aliyuncs.com";  // 设置为你的 OSS 区域
-    private static final String ACCESS_KEY_ID = "LTAI5tAZf7LdGAiPUmRVRrUh";  // 你的阿里云 AccessKeyId
-    private static final String ACCESS_KEY_SECRET = "dyhjo6O89mpXl5r4nP2l3qzjsQUE7n";  // 你的阿里云 AccessKeySecret
-    private static final String BUCKET_NAME = "bucket4product";  // 你的 OSS 存储桶名称
+    private static final String ACCESS_KEY_ID = "***************";  // 你的阿里云 AccessKeyId
+    private static final String ACCESS_KEY_SECRET = "**************";  // 你的阿里云 AccessKeySecret
+    private static final String BUCKET_NAME = "****************";  // 你的 OSS 存储桶名称
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Enumeration<String> paramNames = request.getParameterNames();
